@@ -75,7 +75,7 @@ Function GetNextRandomNumber() {
 # 取得台股當日(或最新)成交統計
 Function GetLatestTWSEAfterTradingStatsString() {
     $url = "https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?response=json&_=$(Get-Date -Format yyyyMMddHHmmss)"
-    $days = (Invoke-RestMethod -Uri $url).data
+    $days = (Invoke-RestMethod -Uri $url -Headers @{ "User-Agent" = "curl/7.68.0" }).data
     return $days[-1] -join '|'
 }
 
