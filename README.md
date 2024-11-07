@@ -1,14 +1,14 @@
-# 開源抽獎程式 Ver 1.0 (台股交易盤後統計版)
+# 開源抽獎程式 Ver 1.0
 
 一個程式碼及抽獎邏輯 100% 開源，公平公正又公開的抽獎程式。(保證無添加不可告人之權重機制)
 
-[好讀版完整說明](https://blog.darkthread.net/blogs/open-lucky-draw)
+[好讀版完整說明](https://blog.darkthread.net/blog/open-lucky-draw)
 
 我一向推崇「程式碼公開，演算結果能被反覆驗證」的抽獎程式，認為這才是解決抽獎作㢣、程式有 Bug 等無端指控的治本之道。演算法及邏輯公開，以具公信力且不可操控的方式決定亂數種子，再依據其產生亂數決定抽獎結果，是我心中最完美的抽獎程式。
 
-程式是用 PowerShell 寫的，用 Notepad 記事本就可以看到所有程式碼，程式碼及邏輯完全公開。Windows 作業系統有內建 PowerShell，所以把 OpenLuckDraw.ps1 檔案下載回去就可以直接跑了。若是 Linux 或 macOS，可參考[在 Windows、Linux 和 macOS 上安裝 PowerShell](https://learn.microsoft.com/zh-tw/powershell/scripting/install/installing-powershell)的說明，輕鬆下載安裝，PowerShell 不難學又可以做很多事，說不定你會愛上它。
+程式是用 PowerShell 寫的，亂數則是依據證交所抓取最新收盤的台股交易統計數字產生，用 Notepad 記事本就可以看到所有程式碼，程式碼及邏輯完全公開。Windows 作業系統有內建 PowerShell，所以把 OpenLuckDraw.ps1 檔案下載回去就可以直接跑了。若是 Linux 或 macOS，可參考[官方文件](https://learn.microsoft.com/zh-tw/powershell/scripting/install/installing-powershell)輕鬆下載安裝，PowerShell 不難學又可以做很多事，說不定你會愛上它。
 
-[下載 OpenLuckyDraw.ps1 與測試用範例 CSV 檔](https://github.com/darkthread/OpenLuckyDraw/releases/tag/1.0.0)
+有興趣的朋友可在 [Release 網頁](https://github.com/darkthread/OpenLuckyDraw/releases/tag/1.0.0)下載 OpenLuckyDraw.ps1 與測試用範例 CSV 檔回去玩。
 
 使用範例：
 
