@@ -7,7 +7,7 @@
 # 特色：執行邏輯公開、程式碼開源，亂數種子無法操控，確保抽獎結果公平公正公開，且可反覆驗證
 
 # 種子來源網頁：https://www.twse.com.tw/zh/trading/historical/fmtqik.html 
-# 種子來源 API：https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?response=json&_=<prevent_cache>
+# 種子來源 API：https://openapi.twse.com.tw/v1/exchangeReport/FMTQIK
 
 # 使用範例：
 # 1. 使用台股當日(或最新)成交統計作為亂數種子抽出前 10 名
@@ -74,9 +74,9 @@ Function GetNextRandomNumber() {
 }
 # 取得台股當日(或最新)成交統計
 Function GetLatestTWSEAfterTradingStatsString() {
-    $url = "https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?response=json&_=$(Get-Date -Format yyyyMMddHHmmss)"
-    $days = (Invoke-RestMethod -Uri $url -Headers @{ "User-Agent" = "curl/7.68.0" }).data
-    return $days[-1] -join '|'
+    $url = "https://openapi.twse.com.tw/v1/exchangeReport/FMTQIK"
+    $entry = (Invoke-RestMethod -Uri $url -Headers @{ "User-Agent" = "curl/7.68.0" }) | Select-Object -Last 1
+    return "{0}/{1}/{2}|{3:n0}|{4:n0}|{5:n0}|{6}|{7}" -f $entry.Date.Substring(0, 3), $entry.Date.SubString(3, 2), $entry.Date.Substring(5, 2), +$entry.TradeVolume, +$entry.TradeValue, +$entry.Transaction, $entry.TAIEX, $entry.Change
 }
 
 $startTime = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
